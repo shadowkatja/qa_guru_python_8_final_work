@@ -7,14 +7,16 @@ from users.users import User
 
 load_dotenv()
 
-email = os.getenv('REGISTRATION_LOGIN')
-password = os.getenv('REGISTRATION_PASSWORD')
+registration_email = os.getenv('REGISTRATION_LOGIN')
+registration_password = os.getenv('REGISTRATION_PASSWORD')
+auth_email = os.getenv('AUTHORIZATION_LOGIN')
+auth_password = os.getenv('AUTHORIZATION_PASSWORD')
 
 user_to_registrate = User(
     name='Tifosa',
-    email=email,
+    email=registration_email,
     gender='Male',
-    password=password,
+    password=registration_password,
     date_of_birth=datetime.date(day=16, month=10, year=1997),
     first_name='Charles',
     last_name='Leclerc',

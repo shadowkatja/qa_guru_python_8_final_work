@@ -1,5 +1,5 @@
-from selene.support.shared import browser
 from selene import have, be
+from selene.support.shared import browser
 
 
 class AccountManager:
@@ -15,15 +15,13 @@ class AccountManager:
 
     def check_logout(self):
         browser.element('.login-form').should(have.text('Login to your account'))
+
     @staticmethod
     def delete_account(self):
         browser.element('.nav>li:nth-child(5)').click()
 
-    def check_account_delete
+    def check_account_delete(self):
         browser.element('//h2[data-qa="account-deleted"]').should(have.exact_text('Account Deleted!'))
-
-
-
 
 
 class LoginPage(AccountManager):

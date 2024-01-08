@@ -1,6 +1,8 @@
 from selene import have, be
 from selene.support.shared import browser
 
+from users.users import User
+
 
 class AccountManager:
     @staticmethod
@@ -42,30 +44,35 @@ class LoginPage(AccountManager):
 
 class RegistrationPage(AccountManager):
 
-    def fill_simple_main_registration_form(self, name, email):
-        browser.element('//input[@data-qa="signup-name"]').type(name)
-        browser.element('//input[@data-qa="signup-email"]').type(email)
+    def fill_first_registration_form(self, user:User):
+        browser.element('//input[@data-qa="signup-name"]').type(user.name)
+        browser.element('//input[@data-qa="signup-email"]').type(user.email)
         return self
 
     @staticmethod
-    def submit_simple_registration_form(self):
+    def submit_first_registration_form(self):
         browser.element('[data-qa="signup-button"]').click()
 
-    def fill_full_registration_form(self):
-        browser.element('#id_gender2').click()
-        browser.element('#password').type('123')
-        browser.element('#days').send_keys('12')
-        browser.element('#months').send_keys('February')
-        browser.element('#years').send_keys('1994')
+    def fill_full_registration_form(self, user:User):
+        if user.gender == 'Male':
+            browser.element('#id_gender1').click()
+        else:
+            browser.element('#id_gender2').click()
 
-        browser.element('#first_name').type('User')
-        browser.element('#last_name').type('Test')
-        browser.element('#address1').type('123 Test Address')
-        browser.element('#country').send_keys('United States')
-        browser.element('#state').type('Texas')
-        browser.element('#city').type('Austin')
-        browser.element('#zipcode').type("11111")
-        browser.element('#mobile_number').type("1234567890")
+        browser.element('#password').type(user.password
+                                          )
+        browser.element('#days').send_keys(user.date_of_birth.strftime("%d"))
+        browser.element('#months').send_keys(user.date_of_birth.strftime('%B'))
+        browser.element('#years').send_keys(user.date_of_birth.year)
+
+        browser.element('#first_name').type(user.first_name)
+        browser.element('#last_name').type(user.last_name)
+        browser.element('#address1').type(user.address)
+        browser.element('#country').send_keys(user.country)
+        browser.element('#state').type(user.state)
+        browser.element('#city').type(user.city)
+        browser.element('#zipcode').type(user.zipcode)
+        browser.element('#mobile_number').type(user.number)
 
         return self
 

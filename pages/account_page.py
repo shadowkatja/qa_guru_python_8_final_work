@@ -6,35 +6,36 @@ from users.users import User
 
 class AccountManager:
     @staticmethod
-    def open_login_page(self):
+    def open_login_registration_page():
         browser.open('/')
         browser.element('.nav>li:nth-child(4)').click()
-        return self
 
     @staticmethod
-    def logout(self):
+    def logout():
+        browser.open('/')
         browser.element('.nav>li:nth-child(4)').click()
 
     def check_logout(self):
         browser.element('.login-form').should(have.text('Login to your account'))
 
     @staticmethod
-    def delete_account(self):
+    def delete_account():
+        browser.open('/')
         browser.element('.nav>li:nth-child(5)').click()
 
-    def check_account_delete(self):
-        browser.element('//h2[data-qa="account-deleted"]').should(have.exact_text('Account Deleted!'))
+    def check_deletion(self):
+        browser.element('[data-qa="account-deleted"]').should(have.text('ACCOUNT DELETED!'))
 
 
 class LoginPage(AccountManager):
 
-    def fill_login_form(self, login, password):
+    def fill_login_page(self, login, password):
         browser.element('//input[@data-qa="login-email"]').type(login)
         browser.element('//input[@data-qa="login-password"]').type(password)
         return self
 
     @staticmethod
-    def submit_login(self):
+    def submit_login():
         browser.element('[data-qa="login-button"]').click()
 
     def check_login(self):
@@ -50,7 +51,7 @@ class RegistrationPage(AccountManager):
         return self
 
     @staticmethod
-    def submit_first_registration_form(self):
+    def submit_first_registration_form():
         browser.element('[data-qa="signup-button"]').click()
 
     def fill_full_registration_form(self, user:User):
@@ -80,4 +81,4 @@ class RegistrationPage(AccountManager):
         browser.element('[data-qa="create-account"]').click()
 
     def check_registration(self):
-        browser.element('//h2[data-qa="account-created"]').should(have.exact_text('Account Created!'))
+        browser.element('[data-qa="account-created"]').should(have.text('ACCOUNT CREATED!'))

@@ -1,7 +1,7 @@
 import allure
 from allure_commons.types import Severity
 
-from pages.account_page import LoginPage, RegistrationPage
+from pages.account_management_page import LoginPage, RegistrationPage
 from users import user_data
 
 login_page = LoginPage()

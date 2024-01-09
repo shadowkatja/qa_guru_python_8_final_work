@@ -3,7 +3,8 @@ import os
 
 from dotenv import load_dotenv
 
-from users.users import User
+from test_data.creditcards import CreditCard
+from test_data.users import User
 
 load_dotenv()
 
@@ -12,7 +13,12 @@ registration_password = os.getenv('REGISTRATION_PASSWORD')
 auth_email = os.getenv('AUTHORIZATION_LOGIN')
 auth_password = os.getenv('AUTHORIZATION_PASSWORD')
 
-user_to_registrate = User(
+card_number = os.getenv('CARD_NUMBER')
+cvc = os.getenv('CVC')
+expiration_month = os.getenv('EXPIRATION_MONTH')
+expiration_year = os.getenv('EXPIRATION_YEAR')
+
+user_to_registrate_ui = User(
     name='Tifosa',
     email=registration_email,
     gender='Male',
@@ -26,4 +32,12 @@ user_to_registrate = User(
     city='Austin',
     zipcode='11111',
     number='1234567890'
+)
+
+credit_card = CreditCard(
+    card_holder='Charles Leclerc',
+    card_number=card_number,
+    cvc=cvc,
+    expiration_month=expiration_month,
+    expiration_year=expiration_year
 )

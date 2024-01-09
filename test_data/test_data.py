@@ -6,12 +6,14 @@ from dotenv import load_dotenv
 from test_data.creditcards import CreditCard
 from test_data.users import User
 
+COMPANY = "Red Bull"
+
 load_dotenv()
 
 registration_ui_email = os.getenv('REGISTRATION_UI_LOGIN')
 registration_ui_password = os.getenv('REGISTRATION_UI_LOGIN')
 
-registration_api_email = os.getenv('REGISTRATION_API_LOGIN')
+registration_api_email: str | None = os.getenv('REGISTRATION_API_LOGIN')
 registration_api_password = os.getenv('REGISTRATION_API_PASSWORD')
 
 auth_email = os.getenv('AUTHORIZATION_LOGIN')

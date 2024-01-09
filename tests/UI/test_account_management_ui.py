@@ -13,8 +13,8 @@ password = test_data.auth_password
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "e.goldinova")
-@allure.title("Check login")
-@allure.feature("Login")
+@allure.title("Successful login")
+@allure.feature("Accounts")
 def test_login():
     with allure.step("Open login page"):
         login_page.open_login_registration_page()
@@ -28,8 +28,8 @@ def test_login():
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "e.goldinova")
-@allure.title("Check logout")
-@allure.feature("Logout")
+@allure.title("Successful logout")
+@allure.feature("Account")
 def test_logout():
     with allure.step("Press logout"):
         login_page.logout()
@@ -39,8 +39,8 @@ def test_logout():
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "e.goldinova")
-@allure.title("Check registration of new user")
-@allure.feature("Registration")
+@allure.title("Successful registration of a new user")
+@allure.feature("Accounts")
 def test_signup():
     with allure.step("Open registration page"):
         registration_page.open_login_registration_page()
@@ -55,6 +55,11 @@ def test_signup():
     with allure.step("Check registration"):
         registration_page.check_registration()
 
+@allure.tag("web")
+@allure.severity(Severity.CRITICAL)
+@allure.label("owner", "e.goldinova")
+@allure.title("Delete account")
+@allure.feature("Accounts")
 def test_delete_account():
     with allure.step("Press delete account"):
         registration_page.delete_account()

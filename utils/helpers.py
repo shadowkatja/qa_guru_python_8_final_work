@@ -1,3 +1,4 @@
+import allure
 import requests
 import json
 import os
@@ -8,7 +9,6 @@ resources_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../sch
 
 def load_schema(file):
     schema_path = os.path.join(resources_path, file)
-    print(f"Attempting to load schema from: {schema_path}")
     with open(schema_path) as file:
         schema = json.load(file)
         return schema
@@ -18,3 +18,22 @@ def send_request(endpoint, method, **kwargs):
     method_func = getattr(requests, method)
     response = method_func(BASE_URL + endpoint, **kwargs)
     return response
+
+def log_request_and_response_to_allure(request, response):
+    request_info = f"URL: {request.url}\nMethod: {request.method}\nHeaders: {request.headers}\n"
+    if request.body:
+        request_info += f"Body: {request.body}\n"
+    allure.attach(
+        body=request_info,
+        name="Request",
+        attachment_type=allure.attachment_type.TEXT,
+        extension="txt",
+    )
+
+    response_info = f"Status code: {response.status_code}\nHeaders: {response.headers}\nBody:\n{response.text}"
+    allure.attach(
+        body=response_info,
+        name="Response",
+        attachment_type=allure.attachment_type.TEXT,
+        extension="txt",
+    )

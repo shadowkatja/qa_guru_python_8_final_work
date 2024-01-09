@@ -33,18 +33,25 @@ class ProductManager:
         browser.element('.features_items').should(have.text('Stylish Dress'))
         browser.element('.features_items').should(have.text('Rose Pink Embroidered Maxi Dress'))
 
-    def purchase_an_item(self, creditcard: CreditCard):
-        browser.element("a[data-product-id='1']").click()
+    def add_item_to_cart(self):
+        browser.element("a[href='/product_details/1']").click()
+        browser.element('//button[@class="btn btn-default cart"]').click
         browser.element("a[href='/view_cart']").click()
-        browser.element('.btn btn-default check_out').click()
+
+    def confirm_purchase(self):
+        browser.element('.btn').click()
         browser.element('a[href="/payment"]').perform(command.js.scroll_into_view)
         browser.element('a[href="/payment"]').click()
-        browser.element('[data-qa="name-on-card"]').send_keys('Charles Leclerc')
-        browser.element('[data-qa="card-number"]').send_keys('4242424242424242')
-        browser.element('[data-qa="cvc"]').send_keys('123')
-        browser.element('[data-qa="expiry_month"]').send_keys('12')
-        browser.element('[data-qa="expiry-year"]').send_keys('2025')
-        browser.element('#submit')
+
+    def fill_card_data(self, creditcard: CreditCard):
+        browser.element('[data-qa="name-on-card"]').send_keys(creditcard.card_holder)
+        browser.element('[data-qa="card-number"]').send_keys(creditcard.card_number)
+        browser.element('[data-qa="cvc"]').send_keys(creditcard.cvc)
+        browser.element("input[name='expiry_month']").send_keys(creditcard.expiration_month)
+        browser.element("input[name='expiry_year']").send_keys(creditcard.expiration_year)
+
+    def pay_for_chosen_item(self):
+        browser.element('#submit').click()
 
     def check_purchase(self):
         browser.element('[data-qa="order-placed"]').should(have.text('ORDER PLACED!'))

@@ -6,9 +6,9 @@ from test_data import test_data
 
 login_page = LoginPage()
 registration_page = RegistrationPage()
-user = user_data.user_to_registrate_ui
-login = user_data.auth_email
-password = user_data.auth_password
+user = test_data.user_to_registrate_ui
+login = test_data.auth_email
+password = test_data.auth_password
 
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)

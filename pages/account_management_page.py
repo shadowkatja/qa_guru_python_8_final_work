@@ -1,7 +1,7 @@
 from selene import have, be
 from selene.support.shared import browser
 
-from users.users import User
+from test_data.users import User
 
 
 class AccountManager:

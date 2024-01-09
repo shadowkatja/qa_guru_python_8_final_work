@@ -2,11 +2,11 @@ import allure
 from allure_commons.types import Severity
 
 from pages.account_management_page import LoginPage, RegistrationPage
-from users import user_data
+from test_data import test_data
 
 login_page = LoginPage()
 registration_page = RegistrationPage()
-user = user_data.user_to_registrate
+user = user_data.user_to_registrate_ui
 login = user_data.auth_email
 password = user_data.auth_password
 

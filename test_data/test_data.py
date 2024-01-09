@@ -8,8 +8,12 @@ from test_data.users import User
 
 load_dotenv()
 
-registration_email = os.getenv('REGISTRATION_LOGIN')
-registration_password = os.getenv('REGISTRATION_PASSWORD')
+registration_ui_email = os.getenv('REGISTRATION_UI_LOGIN')
+registration_ui_password = os.getenv('REGISTRATION_UI_LOGIN')
+
+registration_api_email = os.getenv('REGISTRATION_API_LOGIN')
+registration_api_password = os.getenv('REGISTRATION_API_PASSWORD')
+
 auth_email = os.getenv('AUTHORIZATION_LOGIN')
 auth_password = os.getenv('AUTHORIZATION_PASSWORD')
 
@@ -20,9 +24,9 @@ expiration_year = os.getenv('EXPIRATION_YEAR')
 
 user_to_registrate_ui = User(
     name='Tifosa',
-    email=registration_email,
+    email=registration_ui_email,
     gender='Male',
-    password=registration_password,
+    password=registration_ui_password,
     date_of_birth=datetime.date(day=16, month=10, year=1997),
     first_name='Charles',
     last_name='Leclerc',
@@ -32,6 +36,22 @@ user_to_registrate_ui = User(
     city='Austin',
     zipcode='11111',
     number='1234567890'
+)
+
+user_to_registrate_api = User(
+    name='Max',
+    email=registration_api_email,
+    gender='Male',
+    password=registration_api_password,
+    date_of_birth=datetime.date(day=30, month=10, year=1997),
+    first_name='Max',
+    last_name='Verstappen',
+    address='123 Avenue',
+    country='United States',
+    state='Texas',
+    city='Austin',
+    zipcode='222222',
+    number='9876543210'
 )
 
 credit_card = CreditCard(

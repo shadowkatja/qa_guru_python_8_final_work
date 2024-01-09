@@ -7,7 +7,9 @@ BASE_URL = 'https://automationexercise.com/'
 resources_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../schema'))
 
 def load_schema(file):
-    with open(os.path.join(resources_path, file)) as file:
+    schema_path = os.path.join(resources_path, file)
+    print(f"Attempting to load schema from: {schema_path}")
+    with open(schema_path) as file:
         schema = json.load(file)
         return schema
 

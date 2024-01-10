@@ -7,14 +7,9 @@ from selene.support.shared import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from data import users_data
-from pages.login_page import LoginPage
 from utils import attach
 
 DEFAULT_BROWSER_VERSION = "100.0"
-
-login_page = LoginPage()
-user = users_data.standard_user
 
 
 def pytest_addoption(parser):
@@ -68,6 +63,7 @@ def set_browser(request):
     attach.add_video(browser)
 
     browser.quit()
+
 
 @pytest.fixture(scope='function', autouse=True)
 def open_browser(set_browser):

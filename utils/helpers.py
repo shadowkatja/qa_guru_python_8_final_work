@@ -3,7 +3,10 @@ import requests
 import json
 import os
 
-BASE_URL = 'https://automationexercise.com/'
+from dotenv import load_dotenv
+
+load_dotenv()
+base_url = os.getenv('BASE_URL')
 
 resources_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../schema'))
 

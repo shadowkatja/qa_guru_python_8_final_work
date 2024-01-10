@@ -8,7 +8,8 @@ from models.get_account_data_by_email import get_account_data_by_email
 from models.update_account import update_account
 from models.verify_login import verify_login
 from test_data.test_data import auth_email, auth_password, registration_api_email, registration_api_password, COMPANY
-from utils.helpers import load_schema
+from utils.helpers import load_schema, log_request_and_response_to_allure
+
 
 @allure.tag("api")
 @allure.severity(Severity.CRITICAL)
@@ -19,6 +20,7 @@ def test_verify_login_succesfully():
     schema = load_schema('post_verify_login.json')
     with allure.step("Send Verify user login request"):
         result = verify_login(auth_email, auth_password)
+        log_request_and_response_to_allure(result.request, result)
     with allure.step("Assert the result"):
         assert result.status_code == 200
         assert result.json()["message"] == "User exists!"

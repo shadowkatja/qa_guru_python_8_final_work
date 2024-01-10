@@ -51,7 +51,7 @@ def set_browser(request):
     browser.config.driver = driver
 
     browser.config.base_url = 'https://automationexercise.com/'
-    browser.config.timeout = 10
+    browser.config.timeout = 15
     browser.config.window_width = 1280
     browser.config.window_height = 1024
 

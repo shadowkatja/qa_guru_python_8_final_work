@@ -14,7 +14,8 @@ password = test_data.auth_password
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "e.goldinova")
-@allure.title("Successful login")
+@allure.label('layer', 'WEB')
+@allure.title("Successful login through UI")
 @allure.feature("Accounts")
 def test_login():
     with allure.step("Open login page"):
@@ -30,9 +31,14 @@ def test_login():
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "e.goldinova")
-@allure.title("Successful logout")
+@allure.label('layer', 'WEB')
+@allure.title("Successful logout through UI")
 @allure.feature("Account")
 def test_logout():
+    with allure.step("Login into account"):
+        login_page.open_login_registration_page()
+        login_page.fill_login_page(login, password)
+        login_page.submit_login()
     with allure.step("Press logout"):
         login_page.logout()
     with allure.step("Check logout"):
@@ -42,14 +48,15 @@ def test_logout():
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "e.goldinova")
-@allure.title("Successful registration of a new user")
+@allure.label('layer', 'WEB')
+@allure.title("Successful registration of a new user through UI")
 @allure.feature("Accounts")
 def test_signup():
     with allure.step("Open registration page"):
         registration_page.open_login_registration_page()
     with allure.step("Fill short registration form"):
         registration_page.fill_first_registration_form(user)
-    with allure.step("Submit first registration form"):
+    with allure.step("Submit short registration form"):
         registration_page.submit_first_registration_form()
     with allure.step("Fill full registration form"):
         registration_page.fill_full_registration_form(user)
@@ -62,9 +69,14 @@ def test_signup():
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "e.goldinova")
-@allure.title("Delete account")
+@allure.label('layer', 'WEB')
+@allure.title("Successful account deletion through UI")
 @allure.feature("Accounts")
 def test_delete_account():
+    with allure.step("Login into account"):
+        login_page.open_login_registration_page()
+        login_page.fill_login_page(user.email, user.password)
+        login_page.submit_login()
     with allure.step("Press delete account"):
         registration_page.delete_account()
     with allure.step("Check deletion"):

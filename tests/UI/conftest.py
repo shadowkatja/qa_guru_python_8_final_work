@@ -71,4 +71,4 @@ def open_browser(set_browser):
 
     yield
 
-    browser.open('/')
+    browser.close()

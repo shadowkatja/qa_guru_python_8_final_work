@@ -21,7 +21,7 @@ class ProductManager:
         return self
 
     def filter_women_dresses(self):
-        browser.element('div[id="Women"]').click()
+        browser.element('[data-toggle="collapse"]').click()
         browser.element('a[href="/category_products/1"]').click()
 
     def check_filter(self):

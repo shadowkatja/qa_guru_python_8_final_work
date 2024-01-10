@@ -2,7 +2,7 @@ from test_data.test_data import user_to_registrate_api, COMPANY
 from utils.helpers import send_request
 
 
-def update_account(email, password):
+def update_account(base_url, email, password):
     user = user_to_registrate_api
     endpoint = 'api/updateAccount'
     method = 'PUT'
@@ -26,5 +26,5 @@ def update_account(email, password):
         'mobile_number': user.number
     }
 
-    result = send_request(endpoint, method, data=form_data)
+    result = send_request(base_url, endpoint, method, data=form_data)
     return result

@@ -1,7 +1,7 @@
 from utils.helpers import send_request
 
 
-def delete_account(email, password):
+def delete_account(base_url, email, password):
     endpoint = 'api/deleteAccount'
     method = 'DELETE'
     form_data = {
@@ -9,5 +9,5 @@ def delete_account(email, password):
         'password': password,
     }
 
-    result = send_request(endpoint, method, data=form_data)
+    result = send_request(base_url, endpoint, method, data=form_data)
     return result

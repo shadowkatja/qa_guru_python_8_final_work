@@ -16,10 +16,10 @@ from utils.helpers import load_schema, log_request_and_response_to_allure, log_r
 @allure.label("owner", "e.goldinova")
 @allure.title("Successful login verify")
 @allure.feature("Accounts")
-def test_verify_login_succesfully():
+def test_verify_login_succesfully(base_url):
     schema = load_schema('post_verify_login.json')
     with allure.step("Send Verify user login request"):
-        result = verify_login(auth_email, auth_password)
+        result = verify_login(base_url, auth_email, auth_password)
     with allure.step("Assert the result"):
         assert result.status_code == 200
         assert result.json()["message"] == "User exists!"
@@ -33,10 +33,10 @@ def test_verify_login_succesfully():
 @allure.label("owner", "e.goldinova")
 @allure.title("Get account data by email")
 @allure.feature("Accounts")
-def test_get_account_data_by_email_successflly():
+def test_get_account_data_by_email_successflly(base_url):
     schema = load_schema('get_user_account_by_email.json')
     with allure.step("Send Get user account request"):
-        result = get_account_data_by_email(auth_email)
+        result = get_account_data_by_email(base_url, auth_email)
     with (allure.step("Assert the result")):
         assert result.status_code == 200
         assert result.json()['user']['email'] == auth_email
@@ -50,10 +50,10 @@ def test_get_account_data_by_email_successflly():
 @allure.label("owner", "e.goldinova")
 @allure.title("Create an account")
 @allure.feature("Accounts")
-def test_create_account_successfully():
+def test_create_account_successfully(base_url):
     schema = load_schema('post_create_user.json')
     with allure.step("Send User create request"):
-        result = create_account(registration_api_email, registration_api_password)
+        result = create_account(base_url, registration_api_email, registration_api_password)
     with allure.step("Assert the result"):
         assert result.status_code == 200
         assert result.json()["message"] == "User created!"
@@ -67,16 +67,16 @@ def test_create_account_successfully():
 @allure.label("owner", "e.goldinova")
 @allure.title("Update account data")
 @allure.feature("Accounts")
-def test_update_account_data_successfully():
+def test_update_account_data_successfully(base_url):
     schema = load_schema('put_update_user_account.json')
     with allure.step("Send Account update request"):
-        result = update_account(registration_api_email, registration_api_password)
+        result = update_account(base_url, registration_api_email, registration_api_password)
     with allure.step("Assert the result"):
         assert result.status_code == 200
         assert result.json()["message"] == "User updated!"
         jsonschema.validate(result.json(), schema)
     with allure.step("Check updated data"):
-        result = get_account_data_by_email(registration_api_email)
+        result = get_account_data_by_email(base_url, registration_api_email)
         assert result.json()['user']['company'] == COMPANY
     log_request_and_response_to_allure(result.request, result)
     log_request_and_response_to_console(result)
@@ -87,16 +87,16 @@ def test_update_account_data_successfully():
 @allure.label("owner", "e.goldinova")
 @allure.title("Delete account")
 @allure.feature("Accounts")
-def test_delete_account_succesfully():
+def test_delete_account_succesfully(base_url):
     schema = load_schema('delete_delete_account.json')
     with allure.step("Send Account delete request"):
-        result = delete_account(registration_api_email, registration_api_password)
+        result = delete_account(base_url, registration_api_email, registration_api_password)
     with allure.step("Assert the result"):
         assert result.status_code == 200
         assert result.json()["message"] == "Account deleted!"
         jsonschema.validate(result.json(), schema)
     with allure.step("Check deletion"):
-        result = verify_login(registration_api_email, registration_api_password)
+        result = verify_login(base_url, registration_api_email, registration_api_password)
         assert result.json()["message"] == "User not found!"
     log_request_and_response_to_allure(result.request, result)
     log_request_and_response_to_console(result)

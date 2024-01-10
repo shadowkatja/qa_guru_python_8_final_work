@@ -7,7 +7,6 @@ import requests
 from dotenv import load_dotenv
 
 load_dotenv()
-base_url = os.getenv('BASE_URL')
 
 resources_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../schema'))
 
@@ -19,7 +18,7 @@ def load_schema(file):
         return schema
 
 
-def send_request(endpoint, method, **kwargs):
+def send_request(base_url, endpoint, method, **kwargs):
     method = method.lower()
     method_func = getattr(requests, method)
     response = method_func(base_url + endpoint, **kwargs)

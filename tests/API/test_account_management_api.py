@@ -16,7 +16,7 @@ from utils.helpers import load_schema, log_request_and_response_to_allure, log_r
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'API')
 @allure.title("Successful login verify through API")
-@allure.feature("Accounts")
+@allure.feature("User account")
 def test_verify_login_successfully(base_url):
     schema = load_schema('post_verify_login.json')
     with allure.step("Send request"):
@@ -34,7 +34,7 @@ def test_verify_login_successfully(base_url):
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'API')
 @allure.title("Get user account data by email successfully  through API")
-@allure.feature("Accounts")
+@allure.feature("User account")
 def test_get_account_data_by_email_successflly(base_url):
     schema = load_schema('get_user_account_by_email.json')
     with allure.step("Send request"):
@@ -52,7 +52,7 @@ def test_get_account_data_by_email_successflly(base_url):
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'API')
 @allure.title("Create user account successfully through API")
-@allure.feature("Accounts")
+@allure.feature("User account")
 def test_create_account_successfully(base_url):
     schema = load_schema('post_create_user.json')
     with allure.step("Send request"):
@@ -70,7 +70,7 @@ def test_create_account_successfully(base_url):
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'API')
 @allure.title("Update user account data successfully through API")
-@allure.feature("Accounts")
+@allure.feature("User account")
 def test_update_account_data_successfully(base_url):
     schema = load_schema('put_update_user_account.json')
     with allure.step("Send request"):
@@ -91,7 +91,7 @@ def test_update_account_data_successfully(base_url):
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'API')
 @allure.title("Delete user account successfully through API")
-@allure.feature("Accounts")
+@allure.feature("User account")
 def test_delete_account_successfully(base_url):
     schema = load_schema('delete_delete_account.json')
     with allure.step("Send request"):

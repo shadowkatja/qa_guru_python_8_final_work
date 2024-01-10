@@ -16,7 +16,7 @@ password = test_data.auth_password
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'WEB')
 @allure.title("Successful login through UI")
-@allure.feature("Accounts")
+@allure.feature("User account")
 def test_login():
     with allure.step("Open login page"):
         login_page.open_login_registration_page()
@@ -33,7 +33,7 @@ def test_login():
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'WEB')
 @allure.title("Successful logout through UI")
-@allure.feature("Account")
+@allure.feature("User account")
 def test_logout():
     with allure.step("Login into account"):
         login_page.open_login_registration_page()
@@ -50,7 +50,7 @@ def test_logout():
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'WEB')
 @allure.title("Successful registration of a new user through UI")
-@allure.feature("Accounts")
+@allure.feature("User account")
 def test_signup():
     with allure.step("Open registration page"):
         registration_page.open_login_registration_page()
@@ -71,7 +71,7 @@ def test_signup():
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'WEB')
 @allure.title("Successful account deletion through UI")
-@allure.feature("Accounts")
+@allure.feature("User account")
 def test_delete_account():
     with allure.step("Login into account"):
         login_page.open_login_registration_page()

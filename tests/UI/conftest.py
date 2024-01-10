@@ -62,13 +62,9 @@ def set_browser(request):
     attach.add_html(browser)
     attach.add_video(browser)
 
-    browser.quit()
+    browser.close()
 
 
 @pytest.fixture(scope='function', autouse=True)
 def open_browser(set_browser):
     browser.open('/')
-
-    yield
-
-    browser.close()

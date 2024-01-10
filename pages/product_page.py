@@ -8,7 +8,6 @@ class ProductManager:
 
     @staticmethod
     def open_product_page():
-        browser.open('/')
         browser.element('.nav>li:nth-child(2)').click()
 
     def search_product(self):

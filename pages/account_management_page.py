@@ -7,12 +7,10 @@ from test_data.users import User
 class AccountManager:
     @staticmethod
     def open_login_registration_page():
-        browser.open('/')
         browser.element('.nav>li:nth-child(4)').click()
 
     @staticmethod
     def logout():
-        browser.open('/')
         browser.element('.nav>li:nth-child(4)').click()
 
     def check_logout(self):
@@ -20,7 +18,6 @@ class AccountManager:
 
     @staticmethod
     def delete_account():
-        browser.open('/')
         browser.element('.nav>li:nth-child(5)').click()
 
     def check_deletion(self):

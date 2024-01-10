@@ -16,7 +16,7 @@ credit_card = test_data.credit_card
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'WEB')
-@allure.title("Check search")
+@allure.title("Search an item through UI")
 @allure.feature("Search")
 def test_search():
     with allure.step("Open products page"):
@@ -31,7 +31,7 @@ def test_search():
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'WEB')
-@allure.title("Filter women dresses items")
+@allure.title("Filter women dresses items through UI")
 @allure.feature("Filters")
 def test_filters():
     with allure.step("Open products page"):
@@ -47,7 +47,7 @@ def test_filters():
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'WEB')
 @allure.title("Purchase")
-@allure.feature("Purchasing")
+@allure.feature("E2E Purchase an item through UI")
 def test_purchase():
     with allure.step("Login into account"):
         login_page.open_login_registration_page()

@@ -46,8 +46,8 @@ def test_filters():
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'WEB')
-@allure.title("Purchase")
-@allure.feature("E2E Purchase an item through UI")
+@allure.title("E2E Purchase  an item through UI")
+@allure.feature("Purchase")
 def test_purchase():
     with allure.step("Login into account"):
         login_page.open_login_registration_page()

@@ -19,9 +19,7 @@ class User:
     number: str
 
 
-
-
-def __init__(self, name, email, gender, password,  date_of_birth, first_name, last_name, address, country,
+def __init__(self, name, email, gender, password, date_of_birth, first_name, last_name, address, country,
              state, city, zipcode, number):
     self.name = name
     self.email = email
@@ -36,4 +34,3 @@ def __init__(self, name, email, gender, password,  date_of_birth, first_name, la
     self.city = city
     self.zipcode = zipcode
     self.number = number
-

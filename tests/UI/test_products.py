@@ -11,6 +11,7 @@ login = test_data.auth_email
 password = test_data.auth_password
 credit_card = test_data.credit_card
 
+
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "e.goldinova")
@@ -24,6 +25,7 @@ def test_search():
     with allure.step("Check search result"):
         product_page.check_search()
 
+
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "e.goldinova")
@@ -36,6 +38,7 @@ def test_filters():
         product_page.filter_women_dresses()
     with allure.step("Check filter"):
         product_page.check_filter()
+
 
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)

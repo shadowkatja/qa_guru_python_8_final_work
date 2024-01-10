@@ -1,5 +1,4 @@
-
-from selene import have, be, command
+from selene import have, command
 from selene.support.shared import browser
 
 from test_data.creditcards import CreditCard
@@ -21,7 +20,6 @@ class ProductManager:
         browser.element('.product-image-wrapper').perform(command.js.scroll_into_view)
         browser.element('.product-image-wrapper').should(have.text('Premium Polo T-Shirts'))
         return self
-
 
     def filter_women_dresses(self):
         browser.element('[data-toggle="collapse"]').click()

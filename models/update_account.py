@@ -26,5 +26,5 @@ def update_account(email, password):
         'mobile_number': user.number
     }
 
-    result = send_request(endpoint,method, data=form_data)
+    result = send_request(endpoint, method, data=form_data)
     return result

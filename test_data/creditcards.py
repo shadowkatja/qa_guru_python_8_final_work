@@ -1,5 +1,6 @@
 import dataclasses
 
+
 @dataclasses.dataclass
 class CreditCard():
     card_holder: str
@@ -7,6 +8,7 @@ class CreditCard():
     cvc: str
     expiration_month: str
     expiration_year: str
+
 
 def __init__(self, card_holder, card_number, cvc, expiration_month, expiration_year):
     self.card_holder = card_holder

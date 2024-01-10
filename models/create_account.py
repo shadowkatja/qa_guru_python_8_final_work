@@ -1,12 +1,13 @@
-from test_data.test_data import registration_api_email, registration_api_password, user_to_registrate_api
+from test_data.test_data import user_to_registrate_api
 from utils.helpers import send_request
+
 
 def create_account(email, password):
     user = user_to_registrate_api
     endpoint = 'api/createAccount'
     method = 'POST'
     form_data = {
-    'name': user.name,
+        'name': user.name,
         'email': email,
         'password': password,
         'title': "Mr" if user.gender == "Male" else "Mrs",
@@ -25,5 +26,5 @@ def create_account(email, password):
         'mobile_number': user.number
     }
 
-    result = send_request(endpoint,method, data=form_data)
+    result = send_request(endpoint, method, data=form_data)
     return result

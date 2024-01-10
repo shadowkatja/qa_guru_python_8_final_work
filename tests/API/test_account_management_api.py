@@ -27,6 +27,7 @@ def test_verify_login_succesfully():
     log_request_and_response_to_allure(result.request, result)
     log_request_and_response_to_console(result)
 
+
 @allure.tag("api")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "e.goldinova")
@@ -43,6 +44,7 @@ def test_get_account_data_by_email_successflly():
     log_request_and_response_to_allure(result.request, result)
     log_request_and_response_to_console(result)
 
+
 @allure.tag("api")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "e.goldinova")
@@ -58,6 +60,7 @@ def test_create_account_successfully():
         jsonschema.validate(result.json(), schema)
     log_request_and_response_to_allure(result.request, result)
     log_request_and_response_to_console(result)
+
 
 @allure.tag("api")
 @allure.severity(Severity.CRITICAL)
@@ -97,6 +100,3 @@ def test_delete_account_succesfully():
         assert result.json()["message"] == "User not found!"
     log_request_and_response_to_allure(result.request, result)
     log_request_and_response_to_console(result)
-
-
-

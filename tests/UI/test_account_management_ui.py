@@ -10,6 +10,7 @@ user = test_data.user_to_registrate_ui
 login = test_data.auth_email
 password = test_data.auth_password
 
+
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "e.goldinova")
@@ -25,6 +26,7 @@ def test_login():
     with allure.step("Check login"):
         login_page.check_login()
 
+
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "e.goldinova")
@@ -35,6 +37,7 @@ def test_logout():
         login_page.logout()
     with allure.step("Check logout"):
         login_page.check_logout()
+
 
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
@@ -55,6 +58,7 @@ def test_signup():
     with allure.step("Check registration"):
         registration_page.check_registration()
 
+
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "e.goldinova")
@@ -65,6 +69,3 @@ def test_delete_account():
         registration_page.delete_account()
     with allure.step("Check deletion"):
         registration_page.check_deletion()
-
-
-

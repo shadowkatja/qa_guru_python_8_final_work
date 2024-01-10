@@ -1,10 +1,9 @@
+import json
 import logging
+import os
 
 import allure
 import requests
-import json
-import os
-
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -12,17 +11,20 @@ base_url = os.getenv('BASE_URL')
 
 resources_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../schema'))
 
+
 def load_schema(file):
     schema_path = os.path.join(resources_path, file)
     with open(schema_path) as file:
         schema = json.load(file)
         return schema
 
+
 def send_request(endpoint, method, **kwargs):
     method = method.lower()
     method_func = getattr(requests, method)
     response = method_func(base_url + endpoint, **kwargs)
     return response
+
 
 def log_request_and_response_to_allure(request, response):
     request_info = f"URL: {request.url}\nMethod: {request.method}\nHeaders: {request.headers}\n"
@@ -42,9 +44,11 @@ def log_request_and_response_to_allure(request, response):
         extension="txt",
     )
 
+
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - Response Code: %(response_code)s - URL: %(url)s',
                     datefmt='%Y-%m-%d %H:%M:%S')
+
 
 def log_request_and_response_to_console(response):
     logging.info("Response Code: %s - URL: %s",

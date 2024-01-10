@@ -32,7 +32,7 @@ class ProductManager:
 
     def add_item_to_cart(self):
         browser.element("a[href='/product_details/1']").click()
-        browser.element('//button[@class="btn btn-default cart"]').click
+        browser.element('//button[@class="btn btn-default cart"]').click()
         browser.element("a[href='/view_cart']").click()
 
     def confirm_purchase(self):

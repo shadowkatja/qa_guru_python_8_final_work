@@ -8,7 +8,7 @@ from models.get_account_data_by_email import get_account_data_by_email
 from models.update_account import update_account
 from models.verify_login import verify_login
 from test_data.test_data import auth_email, auth_password, registration_api_email, registration_api_password, COMPANY
-from utils.helpers import load_schema, log_request_and_response_to_allure
+from utils.helpers import load_schema, log_request_and_response_to_allure, log_request_and_response_to_console
 
 
 @allure.tag("api")
@@ -20,11 +20,12 @@ def test_verify_login_succesfully():
     schema = load_schema('post_verify_login.json')
     with allure.step("Send Verify user login request"):
         result = verify_login(auth_email, auth_password)
-        log_request_and_response_to_allure(result.request, result)
     with allure.step("Assert the result"):
         assert result.status_code == 200
         assert result.json()["message"] == "User exists!"
         jsonschema.validate(result.json(), schema)
+    log_request_and_response_to_allure(result.request, result)
+    log_request_and_response_to_console(result)
 
 @allure.tag("api")
 @allure.severity(Severity.NORMAL)
@@ -39,6 +40,8 @@ def test_get_account_data_by_email_successflly():
         assert result.status_code == 200
         assert result.json()['user']['email'] == auth_email
         jsonschema.validate(result.json(), schema)
+    log_request_and_response_to_allure(result.request, result)
+    log_request_and_response_to_console(result)
 
 @allure.tag("api")
 @allure.severity(Severity.CRITICAL)
@@ -53,6 +56,8 @@ def test_create_account_successfully():
         assert result.status_code == 200
         assert result.json()["message"] == "User created!"
         jsonschema.validate(result.json(), schema)
+    log_request_and_response_to_allure(result.request, result)
+    log_request_and_response_to_console(result)
 
 @allure.tag("api")
 @allure.severity(Severity.CRITICAL)
@@ -70,6 +75,8 @@ def test_update_account_data_successfully():
     with allure.step("Check updated data"):
         result = get_account_data_by_email(registration_api_email)
         assert result.json()['user']['company'] == COMPANY
+    log_request_and_response_to_allure(result.request, result)
+    log_request_and_response_to_console(result)
 
 
 @allure.tag("api")
@@ -88,6 +95,8 @@ def test_delete_account_succesfully():
     with allure.step("Check deletion"):
         result = verify_login(registration_api_email, registration_api_password)
         assert result.json()["message"] == "User not found!"
+    log_request_and_response_to_allure(result.request, result)
+    log_request_and_response_to_console(result)
 
 
 

@@ -28,6 +28,11 @@ def set_browser(request):
     browser_version = request.config.getoption('--browser_version')
     browser_version = browser_version if browser_version != "" else DEFAULT_BROWSER_VERSION
     options = Options()
+    root_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+    adblock_path = os.path.join(root_dir, 'adblock.crx')
+    options.add_extension(adblock_path)
+
     selenoid_capabilities = {
         "browserName": "chrome",
         "browserVersion": browser_version,
@@ -50,7 +55,7 @@ def set_browser(request):
     browser.config.driver = driver
 
     browser.config.base_url = 'https://automationexercise.com'
-    browser.config.timeout = 15
+    browser.config.timeout = 10
     browser.config.window_width = 1920
     browser.config.window_height = 1080
 
@@ -67,3 +72,4 @@ def set_browser(request):
 @pytest.fixture(scope='function', autouse=True)
 def open_browser(set_browser):
     browser.open('/')
+    browser.switch_to_tab(0)

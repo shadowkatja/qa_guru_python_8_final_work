@@ -74,37 +74,37 @@
 
 ### Viewing results in Allure Report
 
-#### Viewing overall test launch results
+Viewing overall test launch results
 
 ![This is an image](images/screenshots/allure_report_main.png)
 
-#### Viewing test cases with execution report
+Viewing test cases with execution report
 
 ![This is an image](images/screenshots/allure_report_cases.png)
 
 ### Integration with Allure TestOps
 
-#### Storing all test cases
+Storing all test cases
 
 ![This is an image](images/screenshots/allure_testOPS_testcases.png)
 
-#### Dashboard with statistics
+Dashboard with statistics
 
 ![This is an image](images/screenshots/allure_testOPS_main.png)
 
-#### Comprehensive information on launches with attachments
+Comprehensive information on launches with attachments
 
 ![This is an image](images/screenshots/allure_testOPS_launch.png)
 
 ### Integration with Jira
 
-#### Attached test cases and launches
+Attached test cases and launches
 
 ![This is an image](images/screenshots/jira.png)
 
 ### Integration with Telegram
 
-#### Sending test run reports to Telegram
+Sending test run reports to Telegram
 
 ![This is an image](images/screenshots/telegram.png)
 

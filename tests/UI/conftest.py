@@ -2,7 +2,7 @@ import os
 
 import pytest
 from dotenv import load_dotenv
-from selene.support.shared import browser
+from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -61,7 +61,7 @@ def set_browser(request):
     attach.add_html(browser)
     attach.add_video(browser)
 
-    browser.close()
+    browser.quit()
 
 
 @pytest.fixture(scope='function', autouse=True)

@@ -24,6 +24,9 @@ cvc = os.getenv('CVC')
 expiration_month = os.getenv('EXPIRATION_MONTH')
 expiration_year = os.getenv('EXPIRATION_YEAR')
 
+incorrect_email = "brbr@test.com"
+incorrect_pass = "123"
+
 user_to_registrate_ui = User(
     name='Tifosa',
     email=registration_ui_email,

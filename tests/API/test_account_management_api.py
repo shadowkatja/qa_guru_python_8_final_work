@@ -1,5 +1,6 @@
 import allure
 import jsonschema
+import pytest
 from allure_commons.types import Severity
 
 from models.create_account import create_account
@@ -7,7 +8,8 @@ from models.delete_account import delete_account
 from models.get_account_data_by_email import get_account_data_by_email
 from models.update_account import update_account
 from models.verify_login import verify_login
-from test_data.test_data import auth_email, auth_password, registration_api_email, registration_api_password, COMPANY
+from test_data.test_data import auth_email, auth_password, registration_api_email, registration_api_password, COMPANY, \
+    incorrect_email, incorrect_pass
 from utils.helpers import load_schema, log_request_and_response_to_allure, log_request_and_response_to_console
 
 
@@ -15,18 +17,24 @@ from utils.helpers import load_schema, log_request_and_response_to_allure, log_r
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'API')
-@allure.title("Successful login verify through API")
+@allure.title("Login verify through API for registered and non registered user")
 @allure.feature("User account")
-def test_verify_login_successfully(base_url):
+@pytest.mark.parametrize("email,password,expected_status,response_code, expected_message", [
+    (auth_email, auth_password, 200, 200, "User exists!"),
+    (incorrect_email, incorrect_pass, 200, 404, "User not found!"),
+])
+def test_verify_login_successfully(base_url, email, password, expected_status, response_code, expected_message):
     schema = load_schema('post_verify_login.json')
     with allure.step("Send request"):
-        result = verify_login(base_url, auth_email, auth_password)
+        result = verify_login(base_url, email, password)
     with allure.step("Assert the result"):
-        assert result.status_code == 200
-        assert result.json()["message"] == "User exists!"
+        assert result.status_code == expected_status
+        assert result.json()["responseCode"] == response_code
+        assert result.json()["message"] == expected_message
         jsonschema.validate(result.json(), schema)
     log_request_and_response_to_allure(result.request, result)
     log_request_and_response_to_console(result)
+
 
 
 @allure.tag("api")

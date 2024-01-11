@@ -4,7 +4,6 @@ from allure_commons.types import Severity
 from pages.account_management_page import LoginPage
 from pages.product_page import ProductManager
 from test_data import test_data
-from utils.close_advertising import close_advertising
 
 product_page = ProductManager()
 login_page = LoginPage()
@@ -20,7 +19,6 @@ credit_card = test_data.credit_card
 @allure.title("Search an item through UI")
 @allure.feature("Search")
 def test_search():
-    close_advertising()
     with allure.step("Open products page"):
         product_page.open_product_page()
     with allure.step("Search 'Polo' item"):
@@ -36,7 +34,6 @@ def test_search():
 @allure.title("Filter women dresses items through UI")
 @allure.feature("Filters")
 def test_filters():
-    close_advertising()
     with allure.step("Open products page"):
         product_page.open_product_page()
     with allure.step("Filter women dresses"):
@@ -52,7 +49,6 @@ def test_filters():
 @allure.title("E2E Purchase  an item through UI")
 @allure.feature("Purchase")
 def test_purchase():
-    close_advertising()
     with allure.step("Login into account"):
         login_page.open_login_registration_page()
         login_page.fill_login_page(login, password)

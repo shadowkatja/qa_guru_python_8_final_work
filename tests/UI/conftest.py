@@ -2,7 +2,6 @@ import os
 
 import pytest
 from dotenv import load_dotenv
-from selene import browser
 from selene.support.shared import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -52,8 +51,8 @@ def set_browser(request):
 
     browser.config.base_url = 'https://automationexercise.com'
     browser.config.timeout = 15
-    browser.config.window_width = 1280
-    browser.config.window_height = 1024
+    browser.config.window_width = 1920
+    browser.config.window_height = 1080
 
     yield browser
 

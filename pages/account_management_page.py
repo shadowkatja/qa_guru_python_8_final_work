@@ -1,4 +1,4 @@
-from selene import have, be
+from selene import have, be, command
 from selene.support.shared import browser
 
 from test_data.users import User
@@ -62,12 +62,12 @@ class RegistrationPage(AccountManager):
         browser.element('#days').send_keys(user.date_of_birth.strftime("%d"))
         browser.element('#months').send_keys(user.date_of_birth.strftime('%B'))
         browser.element('#years').send_keys(user.date_of_birth.year)
-
         browser.element('#first_name').type(user.first_name)
         browser.element('#last_name').type(user.last_name)
         browser.element('#address1').type(user.address)
         browser.element('#country').send_keys(user.country)
         browser.element('#state').type(user.state)
+        browser.element('[data-qa="create-account"]').perform(command.js.scroll_into_view)
         browser.element('#city').type(user.city)
         browser.element('#zipcode').type(user.zipcode)
         browser.element('#mobile_number').type(user.number)

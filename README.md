@@ -48,7 +48,8 @@
   <code><img width="5%" title="Selenoid" src="https://github.com/shadowkatja/qa_guru_python_8_final_work/blob/master/images/icons/selenoid.png"></code>
   <code><img width="5%" title="Allure Report" src="https://github.com/shadowkatja/qa_guru_python_8_final_work/blob/master/images/icons/allure.png"></code>
   <code><img width="5%" title="Allure TestOps" src="https://github.com/shadowkatja/qa_guru_python_8_final_work/blob/master/images/icons/allure_testops.png"></code>
-  <code><img width="5%" title="Telegram" src="https://github.com/shadowkatja/qa_guru_python_8_final_work/blob/master/images/icons/telegram.png"></code>
+  <code><img width="5%" title="Telegram" src="https://github.com/shadowkatja/qa_guru_python_8_final_work/blob/master/images/icons/jira.png"></code>
+<code><img width="5%" title="Telegram" src="https://github.com/shadowkatja/qa_guru_python_8_final_work/blob/master/images/icons/telegram.png"></code>
 </p>
 
 ### Automated tests are executed on the Jenkins server

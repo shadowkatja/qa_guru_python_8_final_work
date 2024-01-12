@@ -53,7 +53,7 @@
 </p>
 
 ### Automated tests are executed on the Jenkins server
-> <a target="_blank" href="https://jenkins.autotests.cloud/job/goldinova_qa_guru_final_work/">Ссылка на проект в Jenkins</a>
+> <a target="_blank" href="https://jenkins.autotests.cloud/job/goldinova_qa_guru_final_work/">Link to the project in Jenkins</a>
 
 ### Build parameters
 

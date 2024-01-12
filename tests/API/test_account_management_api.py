@@ -3,14 +3,14 @@ import jsonschema
 import pytest
 from allure_commons.types import Severity
 
-from models.create_account import create_account
-from models.delete_account import delete_account
-from models.get_account_data_by_email import get_account_data_by_email
-from models.update_account import update_account
-from models.verify_login import verify_login
-from test_data.test_data import auth_email, auth_password, registration_api_email, registration_api_password, COMPANY, \
+from qa_guru_python_8_final_work.api_models.create_account import create_account
+from qa_guru_python_8_final_work.api_models.delete_account import delete_account
+from qa_guru_python_8_final_work.api_models.get_account_data_by_email import get_account_data_by_email
+from qa_guru_python_8_final_work.api_models.update_account import update_account
+from qa_guru_python_8_final_work.api_models.verify_login import verify_login
+from tests.test_data.test_data import auth_email, auth_password, registration_api_email, registration_api_password, COMPANY, \
     incorrect_email, incorrect_pass
-from utils.helpers import load_schema, log_request_and_response_to_allure, log_request_and_response_to_console
+from qa_guru_python_8_final_work.utils.helpers import load_schema, log_request_and_response_to_allure, log_request_and_response_to_console
 
 
 @allure.tag("api")

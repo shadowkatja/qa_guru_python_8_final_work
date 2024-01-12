@@ -1,7 +1,7 @@
 from selene import have, command
 from selene.support.shared import browser
 
-from test_data.creditcards import CreditCard
+from tests.test_data.creditcards import CreditCard
 
 
 class ProductManager:

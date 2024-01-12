@@ -1,9 +1,9 @@
-from utils.helpers import send_request
+from qa_guru_python_8_final_work.utils.helpers import send_request
 
 
-def delete_account(base_url, email, password):
-    endpoint = 'api/deleteAccount'
-    method = 'DELETE'
+def verify_login(base_url, email, password):
+    endpoint = 'api/verifyLogin'
+    method = 'POST'
     form_data = {
         'email': email,
         'password': password,

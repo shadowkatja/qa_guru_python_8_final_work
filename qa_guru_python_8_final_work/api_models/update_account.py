@@ -1,5 +1,5 @@
-from test_data.test_data import user_to_registrate_api, COMPANY
-from utils.helpers import send_request
+from tests.test_data.test_data import user_to_registrate_api, COMPANY
+from qa_guru_python_8_final_work.utils.helpers import send_request
 
 
 def update_account(base_url, email, password):

@@ -1,5 +1,5 @@
-from test_data.test_data import user_to_registrate_api
-from utils.helpers import send_request
+from tests.test_data.test_data import user_to_registrate_api
+from qa_guru_python_8_final_work.utils.helpers import send_request
 
 
 def create_account(base_url, email, password):

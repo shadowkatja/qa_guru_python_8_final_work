@@ -1,4 +1,4 @@
-from utils.helpers import send_request
+from qa_guru_python_8_final_work.utils.helpers import send_request
 
 
 def get_account_data_by_email(base_url, email):

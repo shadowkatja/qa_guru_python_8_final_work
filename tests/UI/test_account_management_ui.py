@@ -1,8 +1,8 @@
 import allure
 from allure_commons.types import Severity
 
-from pages.account_management_page import LoginPage, RegistrationPage
-from test_data import test_data
+from qa_guru_python_8_final_work.pages.account_management_page import LoginPage, RegistrationPage
+from tests.test_data import test_data
 
 login_page = LoginPage()
 registration_page = RegistrationPage()

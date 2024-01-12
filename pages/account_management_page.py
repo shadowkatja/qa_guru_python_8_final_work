@@ -42,7 +42,7 @@ class LoginPage(AccountManager):
 
 class RegistrationPage(AccountManager):
 
-    def fill_first_registration_form(self, user:User):
+    def fill_first_registration_form(self, user: User):
         browser.element('//input[@data-qa="signup-name"]').type(user.name)
         browser.element('//input[@data-qa="signup-email"]').type(user.email)
         return self
@@ -51,7 +51,7 @@ class RegistrationPage(AccountManager):
     def submit_first_registration_form():
         browser.element('[data-qa="signup-button"]').click()
 
-    def fill_full_registration_form(self, user:User):
+    def fill_full_registration_form(self, user: User):
         if user.gender == 'Male':
             browser.element('#id_gender1').click()
         else:

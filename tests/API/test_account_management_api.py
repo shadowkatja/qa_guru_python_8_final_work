@@ -36,7 +36,6 @@ def test_verify_login_successfully(base_url, email, password, expected_status, r
     log_request_and_response_to_console(result)
 
 
-
 @allure.tag("api")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "e.goldinova")

@@ -2,7 +2,7 @@ import dataclasses
 
 
 @dataclasses.dataclass
-class CreditCard():
+class CreditCard:
     card_holder: str
     card_number: str
     cvc: str

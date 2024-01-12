@@ -1,4 +1,4 @@
-from tests.test_data.test_data import user_to_registrate_api, COMPANY
+from qa_guru_python_8_final_work.test_data.data import user_to_registrate_api, COMPANY
 from qa_guru_python_8_final_work.utils.helpers import send_request
 
 

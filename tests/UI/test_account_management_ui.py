@@ -2,13 +2,13 @@ import allure
 from allure_commons.types import Severity
 
 from qa_guru_python_8_final_work.pages.account_management_page import LoginPage, RegistrationPage
-from tests.test_data import test_data
+from qa_guru_python_8_final_work.test_data.data import user_to_registrate_ui, auth_email, auth_password
 
 login_page = LoginPage()
 registration_page = RegistrationPage()
-user = test_data.user_to_registrate_ui
-login = test_data.auth_email
-password = test_data.auth_password
+user = user_to_registrate_ui
+login = auth_email
+password = auth_password
 
 
 @allure.tag("web")

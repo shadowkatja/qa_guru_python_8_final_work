@@ -3,8 +3,8 @@ import os
 
 from dotenv import load_dotenv
 
-from tests.test_data.creditcards import CreditCard
-from tests.test_data.users import User
+from qa_guru_python_8_final_work.test_data.creditcards import CreditCard
+from qa_guru_python_8_final_work.test_data.users import User
 
 COMPANY = "Red Bull"
 

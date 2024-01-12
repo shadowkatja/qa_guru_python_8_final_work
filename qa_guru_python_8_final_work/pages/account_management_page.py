@@ -1,7 +1,7 @@
+from selene import browser
 from selene import have, be, command
-from selene.support.shared import browser
 
-from tests.test_data.users import User
+from qa_guru_python_8_final_work.test_data.users import User
 
 
 class AccountManager:
@@ -27,8 +27,8 @@ class AccountManager:
 class LoginPage(AccountManager):
 
     def fill_login_page(self, login, password):
-        browser.element('//input[@data-qa="login-email"]').type(login)
-        browser.element('//input[@data-qa="login-password"]').type(password)
+        browser.element('[data-qa="login-email"]').type(login)
+        browser.element('[data-qa="login-password"]').type(password)
         return self
 
     @staticmethod
@@ -43,8 +43,8 @@ class LoginPage(AccountManager):
 class RegistrationPage(AccountManager):
 
     def fill_first_registration_form(self, user: User):
-        browser.element('//input[@data-qa="signup-name"]').type(user.name)
-        browser.element('//input[@data-qa="signup-email"]').type(user.email)
+        browser.element('[data-qa="signup-name"]').type(user.name)
+        browser.element('[data-qa="signup-email"]').type(user.email)
         return self
 
     @staticmethod

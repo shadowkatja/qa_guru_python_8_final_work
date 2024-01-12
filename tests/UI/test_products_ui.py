@@ -3,13 +3,13 @@ from allure_commons.types import Severity
 
 from qa_guru_python_8_final_work.pages.account_management_page import LoginPage
 from qa_guru_python_8_final_work.pages.product_page import ProductManager
-from tests.test_data import test_data
+from qa_guru_python_8_final_work.test_data.data import auth_email, auth_password, credit_card
 
 product_page = ProductManager()
 login_page = LoginPage()
-login = test_data.auth_email
-password = test_data.auth_password
-credit_card = test_data.credit_card
+login = auth_email
+password = auth_password
+credit_card = credit_card
 
 
 @allure.tag("web")
@@ -59,7 +59,7 @@ def test_purchase():
         product_page.add_item_to_cart()
     with allure.step("Confirm purchase"):
         product_page.confirm_purchase()
-    with allure.step("Fill payment data"):
+    with allure.step("Fill payment test_data"):
         product_page.fill_card_data(credit_card)
     with allure.step("Pay for the chosen item"):
         product_page.pay_for_chosen_item()

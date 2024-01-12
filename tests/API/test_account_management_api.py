@@ -8,9 +8,11 @@ from qa_guru_python_8_final_work.api_models.delete_account import delete_account
 from qa_guru_python_8_final_work.api_models.get_account_data_by_email import get_account_data_by_email
 from qa_guru_python_8_final_work.api_models.update_account import update_account
 from qa_guru_python_8_final_work.api_models.verify_login import verify_login
-from tests.test_data.test_data import auth_email, auth_password, registration_api_email, registration_api_password, COMPANY, \
-    incorrect_email, incorrect_pass
-from qa_guru_python_8_final_work.utils.helpers import load_schema, log_request_and_response_to_allure, log_request_and_response_to_console
+from qa_guru_python_8_final_work.test_data.data import (auth_email, auth_password, registration_api_email,
+                                                        registration_api_password, COMPANY, incorrect_email,
+                                                        incorrect_pass)
+from qa_guru_python_8_final_work.utils.helpers import (load_schema, log_request_and_response_to_allure,
+                                                       log_request_and_response_to_console)
 
 
 @allure.tag("api")
@@ -40,7 +42,7 @@ def test_verify_login_successfully(base_url, email, password, expected_status, r
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'API')
-@allure.title("Get user account data by email successfully  through API")
+@allure.title("Get user account test_data by email successfully  through API")
 @allure.feature("User account")
 def test_get_account_data_by_email_successflly(base_url):
     schema = load_schema('get_user_account_by_email.json')
@@ -76,7 +78,7 @@ def test_create_account_successfully(base_url):
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "e.goldinova")
 @allure.label('layer', 'API')
-@allure.title("Update user account data successfully through API")
+@allure.title("Update user account test_data successfully through API")
 @allure.feature("User account")
 def test_update_account_data_successfully(base_url):
     schema = load_schema('put_update_user_account.json')
@@ -86,7 +88,7 @@ def test_update_account_data_successfully(base_url):
         assert result.status_code == 200
         assert result.json()["message"] == "User updated!"
         jsonschema.validate(result.json(), schema)
-    with allure.step("Check updated data"):
+    with allure.step("Check updated test_data"):
         result = get_account_data_by_email(base_url, registration_api_email)
         assert result.json()['user']['company'] == COMPANY
     log_request_and_response_to_allure(result.request, result)

@@ -1,5 +1,4 @@
-from selene import browser
-from selene import have, command
+from selene import browser, have, command
 
 from qa_guru_python_8_final_work.test_data.creditcards import CreditCard
 

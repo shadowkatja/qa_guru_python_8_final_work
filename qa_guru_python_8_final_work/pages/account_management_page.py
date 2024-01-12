@@ -1,5 +1,4 @@
-from selene import browser
-from selene import have, be, command
+from selene import browser, have, be, command
 
 from qa_guru_python_8_final_work.test_data.users import User
 
